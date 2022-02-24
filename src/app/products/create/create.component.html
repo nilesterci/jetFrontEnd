@@ -1,0 +1,117 @@
+<section class="py-10">
+  <po-page-list
+    [p-filter]="filtros"
+    p-title="Produtos"
+    [p-actions]="actionsPage"
+  >
+    <po-table
+    #poTable
+      [p-auto-collapse]="true"
+      [p-columns]="columns"
+      [p-hide-columns-manager]="true"
+      [p-items]="itemsTable"
+      [p-sort]="true"
+      [p-striped]="true"
+      [p-actions]="actions"
+    >
+    </po-table>
+  </po-page-list>
+</section>
+
+<po-modal
+  #poModal
+  p-title="Cadastro de Produtos"
+  [p-primary-action]="confirm"
+  [p-secondary-action]="close"
+  [p-hide-close]="autoClose"
+>
+  <div class="po-row">
+    <po-switch
+      class="po-md-6"
+      (p-change)="eventEmitterStatus($event)"
+      [(ngModel)]="newProduct.Status"
+      p-label="Ativo?"
+      p-label-off="Não"
+      p-label-on="Sim"
+      name="valor"
+    >
+    </po-switch>
+
+    <po-switch
+      class="po-md-6"
+      (p-change)="eventEmitterStatusPromo($event)"
+      [(ngModel)]="newProduct.StatusPromo"
+      p-label="Promoção?"
+      p-label-off="Não"
+      p-label-on="Sim"
+      name="valor"
+    >
+    </po-switch>
+  </div>
+
+  <po-input
+    name="name"
+    p-label="Nome do Produto"
+    [(ngModel)]="newProduct.ProductName"
+    p-required="true"
+  >
+  </po-input>
+
+  <po-textarea
+    name="textarea"
+    p-label="Descrição"
+    [(ngModel)]="newProduct.Description"
+  >
+  </po-textarea>
+
+  <po-number
+    name="stock"
+    p-label="Estoque"
+    [(ngModel)]="newProduct.Stock"
+    p-required="true"
+  >
+  </po-number>
+
+  <po-number
+    name="price"
+    p-label="Preço"
+    [(ngModel)]="newProduct.Price"
+    p-required="true"
+  >
+  </po-number>
+
+  <po-upload
+    name="upload"
+    p-label="Imagem"
+    p-url="http://localhost:5073/api/productImage"
+    p-form-field="fileImage"
+    [p-auto-upload]="autoUpload"
+    (p-success)="nameImage($event)"
+  >
+  </po-upload>
+</po-modal>
+
+<!-- MODAL DETALHES -->
+
+<po-modal #modalDetails p-title="Detalhes">
+  <div class="po-row">
+    <po-widget
+      class="po-sm-12 po-md-8 po-lg-6"
+      (p-height)="(500)"
+      [p-title]="detailProduct.productName"
+    >
+      <po-avatar
+        class="po-md-12"
+        p-size="xl"
+        p-src="assets/images/{{ verifyImage(detailProduct.image) }}"
+      >
+      </po-avatar>
+
+      <div class="po-md-8">
+        <p><strong>Produto:</strong> {{ detailProduct.productName }}</p>
+        <p><strong>Descrição:</strong> {{ detailProduct.description }}</p>
+        <p><strong>Preço:</strong> {{ detailProduct.formattedPrice }}</p>
+      </div>
+    </po-widget>
+  </div>
+</po-modal>

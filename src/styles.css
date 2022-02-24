@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.po-modal-overlay {
+  background-color: #1d2426ed !important;
+}
+
+.bg-dark {
+  background: rgba(8, 95, 226, 0.856) !important;
+}
+
+.po-table .po-table-header {
+  color: rgba(8, 95, 226, 0.856) !important;
+}
+
+.po-table-container-fixed-inner::-webkit-scrollbar-thumb, .po-table-main-container::-webkit-scrollbar-thumb {
+  background-color: rgba(8, 95, 226, 0.856) !important;
+}
+
+
+.po-table-column-actions {
+  color: rgba(8, 95, 226, 0.856);
+}
+
+.po-button {
+  color: rgba(8, 95, 226, 0.856);
+}
+
+.po-button-primary {
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 15%);
+  background-color: #00b28e;
+  border: 0px solid #000000;
+  color: white;
+}
+
+.po-button-primary:hover {
+  background-color: #00b28e;
+  border: 0px solid #000000;
+}
+
+.po-field-icon {
+  color: rgba(8, 95, 226, 0.856);
+}
