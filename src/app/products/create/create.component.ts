@@ -46,11 +46,6 @@ export class CreateComponent implements OnInit {
       label: 'Detalhes',
     },
     {
-      // action: this.modalDetailsOpen.bind(this),
-      icon: 'po-icon-edit',
-      label: 'Editar',
-    },
-    {
       action: this.remove.bind(this),
       icon: 'po-icon po-icon-delete',
       label: 'Remover',
